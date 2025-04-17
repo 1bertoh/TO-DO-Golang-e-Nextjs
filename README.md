@@ -17,6 +17,7 @@ This project implements a TODO application with the following components:
 - **Backend**: Golang REST API running on port 8080
 - **Database**: PostgreSQL managed via Docker
 - **Frontend**: NextJS application running on port 3000
+- **Authentication**: JWT (JSON Web Token) based authentication system
 
 ## 🚀 Backend
 
@@ -25,7 +26,8 @@ The backend is built with Golang and provides a REST API for managing TODO items
 ### ✨ Features
 
 - RESTful API endpoints for managing TODO items
-- User authentication with JWT
+- Secure user authentication with JWT tokens
+- Role-based access control
 - PostgreSQL database integration
 - Docker containerization for easy setup and deployment
 - CORS configured for frontend integration
@@ -53,7 +55,8 @@ The frontend is built with NextJS and provides a user interface for interacting 
 
 - Modern React-based UI with NextJS
 - State management for TODO items
-- User authentication
+- JWT authentication integration
+- Protected routes for authenticated users
 - Responsive design
 
 ### 🛠️ Setup and Running
@@ -93,11 +96,20 @@ The frontend will be available at `http://localhost:3000`
 
 3. Access the application at `http://localhost:3000`
 
+## 🔐 Authentication
+
+The application uses JWT (JSON Web Token) for authentication:
+
+- Tokens are issued at login and required for protected endpoints
+- Authentication middleware validates tokens on protected routes
+- Secure storage and handling of authentication state in the frontend
+- JWT secret configurable via environment variables
+
 ## 🔌 API Endpoints
 
 The backend provides the following API endpoints:
 
-### 🔐 Authentication
+### 🔑 Authentication
 - `POST /api/register` - Register a new user
 - `POST /api/login` - Login and receive JWT token
 
